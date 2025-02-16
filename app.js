@@ -21,30 +21,32 @@ let computerChoice = getComputerChoice();
 let computerScore = 0;
 let humanScore = 0;
 
+let resultDiv = document.querySelector(".results");
+
 const playRound = (humanChoice, computerChoice) => {
-        console.log("Human Choice: " + humanChoice + " Computer choice: " + computerChoice);
+        resultDiv.innerHTML = "Human Choice: " + humanChoice + " Computer choice: " + computerChoice;
         if (humanChoice == "rock" && computerChoice =="paper"){
-            console.log("You lose! Paper beats rock.\n");
+            resultDiv.innerHTML += "<br>You lose! Paper beats rock.<br>";
             computerScore++;
         } else if (humanChoice == "paper" && computerChoice=="scissors"){
-            console.log("You lose! Scissors beat paper!\n");
+            resultDiv.innerHTML += "<br>You lose! Scissors beat paper!<br>";
             computerScore++;
         } else if (humanChoice == "scissors" && computerChoice =="rock"){
-            console.log("You lose! Rock beats scissors!\n");
+            resultDiv.innerHTML += "<br>You lose! Rock beats scissors!<br>";
             computerScore++;
         } else if (humanChoice=="rock" && computerChoice =="scissors"){
-            console.log("You win! Rock beats scissors!\n");
+            resultDiv.innerHTML += "<br>You win! Rock beats scissors!<br>";
             humanScore++;
         } else if (humanChoice=="paper" && computerChoice=="rock"){
-            console.log("You win! Paper beats rock!\n");
+            resultDiv.innerHTML += "<br>You win! Paper beats rock!<br>";
             humanScore++;
         } else if (humanChoice=="scissors" && computerChoice=="paper"){
-            console.log("You win! Scissors beat paper!\n");
+            resultDiv.innerHTML += "<br>You win! Scissors beat paper!<br>";
             humanScore++;
         } else {
-            console.log("It's a draw!\n");
+            resultDiv.innerHTML += "<br>It's a draw!<br>";
         }
-        console.log("Player Score: " + humanScore + " Computer Score: " + computerScore);
+        resultDiv.innerHTML += "Player Score: " + humanScore + " Computer Score: " + computerScore;
 };
 
 let paperButton = document.querySelector("#paper-button");
