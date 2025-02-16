@@ -47,6 +47,15 @@ const playRound = (humanChoice, computerChoice) => {
             resultDiv.innerHTML += "<br>It's a draw!<br>";
         }
         resultDiv.innerHTML += "Player Score: " + humanScore + " Computer Score: " + computerScore;
+        if (humanScore == 5) {
+            resultDiv.innerHTML += "<br>You win the game!";
+            humanScore = 0;
+            computerScore = 0;
+        } else if (computerScore == 5){
+            resultDiv.innerHTML += "<br>The computer wins the game!";
+            humanScore = 0;
+            computerScore = 0;
+        }
 };
 
 let paperButton = document.querySelector("#paper-button");
