@@ -9,6 +9,8 @@ const getHumanChoice =() => {
     return humanInput
 }
 
+let humanChoice;
+let computerChoice = getComputerChoice();
 
 
 // console.log("Human choice: " + getHumanChoice());
@@ -16,14 +18,10 @@ const getHumanChoice =() => {
 // console.log("Computer choice: " + getComputerChoice());
 
 
-const playGame = () => {
-    let humanChoice;
-    let computerChoice;
+let computerScore = 0;
+let humanScore = 0;
 
-    let computerScore = 0;
-    let humanScore = 0;
-
-    const playRound = (humanChoice, computerChoice) => {
+const playRound = (humanChoice, computerChoice) => {
         console.log("Human Choice: " + humanChoice + " Computer choice: " + computerChoice);
         if (humanChoice == "rock" && computerChoice =="paper"){
             console.log("You lose! Paper beats rock.\n");
@@ -47,12 +45,22 @@ const playGame = () => {
             console.log("It's a draw!\n");
         }
         console.log("Player Score: " + humanScore + " Computer Score: " + computerScore);
-    }
-    for (let i = 0; i < 5; i ++) {
-        humanChoice=getHumanChoice().toLowerCase();
-        computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-    }
-}
+};
 
-playGame();
+let paperButton = document.querySelector("#paper-button");
+paperButton.addEventListener("click", (e) => {
+    computerChoice = getComputerChoice();
+    playRound("paper", computerChoice);
+});
+
+let rockButton = document.querySelector("#rock-button");
+rockButton.addEventListener("click", (e) => {
+    computerChoice = getComputerChoice();
+    playRound("rock", computerChoice);
+})
+
+let scissorsButton = document.querySelector("#scissors-button");
+scissorsButton.addEventListener("click", (e) => {
+    computerChoice = getComputerChoice();
+    playRound("scissors", computerChoice);
+})
